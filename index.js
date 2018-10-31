@@ -22,38 +22,6 @@ app.use(express.static('public'));
 
 var port = 3000;
 
-app.get('/producto/desc', (req, res) => {
-    var nombre = req.query.name;
-
-
-    products.find({}).toArray(function (err, array) {
-        var product = array.find(function (element) {
-            return element.nombre == nombre;
-        });
-        res.render('producto', product);
-    });
-
-
-});
-
-app.get('/producto/addtocart', (req, res) => {
-    var nombre = req.query.name;
-
-    var product = null;
-    products.find({}).toArray(function (err, array) {
-
-        product = array.find(function (element) {
-            return element.nombre == nombre;
-        });
-
-        db.collection('Cart').insert(product);
-    });
-
-
-});
-
-app.listen(port);
-
 const assert = require("assert");
 const url = "mongodb://localhost:27017";
 const mongoName = "productos";
@@ -62,23 +30,46 @@ const mongoClient = new MongoClient(url);
 var products = null;
 
 mongoClient.connect(function (err) {
-
     assert.equal(null, err);
-
     const db = mongoClient.db(mongoName);
     products = db.collection("Ropa");
 });
 
 mongoClient.connect(function (err) {
-
     if (err) {
         console.error(err);
         return;
     }
     db = mongoClient.db(dbName);
-
 });
 
+
+
+app.get('/producto/desc', (req, res) => {
+    var nombre = req.query.name;
+    products.find({}).toArray(function (err, array) {
+        var product = array.find(function (element) {
+            return element.nombre == nombre;
+        });
+        res.render('producto', product);
+    });
+});
+
+app.get('/producto/addtocart', (req, res) => {
+    var nombre = req.query.name;
+    console.log('nombre tomado: '+nombre);
+    products.find({}).toArray(function (err, docs) {
+        var product = docs.find(function (element) {
+            return element.nombre == nombre;
+        });
+        console.log(product);
+        db.collection('Cart').insert(product);
+        res.send('finaliza');
+    });
+    
+});
+
+app.listen(port);
 
 
 /*MongoClient.connect('mongodb://localhost:27017', function (err, client) {
