@@ -55,64 +55,9 @@
 
     </article>
 
-    <!--
 
-    <article class="store">
-
-        <nav class>
-
-            <ul class="store__filters--one">
-
-                <li>
-                    <a href="">Clothing</a>
-                </li>
-                <li>
-                    <a href="">Accessories</a>
-                </li>
-                <li>
-                    <a href="">Gifts</a>
-                </li>
-            </ul>
-
-            <section class="store__sectiontwo">
-                <div class="store__sectiontwo__filterstwo">
-                    <ul class="store__sectiontwo__filterstwo__list">
-
-                        <li>
-                            <a href="">News</a>
-                        </li>
-                        <li>
-                            <a href="">Woman</a>
-                        </li>
-                        <li>
-                            <a href="">Man</a>
-                        </li>
-                        <li>
-                            <a href="">Pants</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="store__sectiontwo__elements">
-                    <div class="store__sectiontwo__elements__one">
-
-                        <div class="store__sectiontwo__elements__one__shirt">
-                            <img src="imagenes/camisa.png">
-                            <h3 class="store__sectiontwo__elements__one__shirt__tittle">T-Shirt</h3>
-                        </div>
-                    </div>
-
-                </div>
-                </div>
-            </section>
-
-
-
-    </article>
-
-    -->
     <section class="products">
-        <article class="filtersOne">
+        <article class="products__filtersOne">
             <ul>
                 <li><a href="">News</a></li>
                 <li><a href="">Woman</a></li>
@@ -120,9 +65,9 @@
                 <li><a href="">Pants</a></li>
             </ul>
         </article>
-        <article class="contentContainer">
-            <div class="filtersTwo">
-                <div class="filter">
+        <article class="products__contentContainer">
+            <div class="products__contentContainer__filtersTwo">
+                <div class="products__contentContainer__filtersTwo__filter">
                     <li><a href="">Clothing</a></li>
                     <li><a href="">Accesories</a></li>
                     <li><a href="">Gifts</a></li>
@@ -132,21 +77,24 @@
                 </button>
 
             </div>
-            <div class="content">
-                <div class="product">
-                    <div class="imgContent">
-
+            {{#each producto}}
+            <div  class="products__contentContainer__content">
+                <a href="/producto">
+                    <div class="products__contentContainer__content__product">
+                        <div class="products__contentContainer__content__product__imgContent">
+                            <img src="{{imagen}}" alt="">
+                        </div>
+                        <p class="products__contentContainer__content__product__name">{{nombre}}</p>
+                        <p class="products__contentContainer__content__product__price">{{precio}}</p>
                     </div>
-                    <p class="name">
-                        Nombre Camisa
-                    </p>
-                    <p class="price">
-                        $00000
-                    </p>
-                </div>
+                </a>
+            </div>
+            {{/each}}
             </div>
         </article>
     </section>
+
+
 
     <form class="newsletter">
         <div class="newsletter__container">

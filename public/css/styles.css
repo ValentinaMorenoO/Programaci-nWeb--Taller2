@@ -245,14 +245,23 @@ body {
 }
 
 */
+* {
+  font-family: Montserrat;
+}
+
 a {
   text-decoration: none;
+  list-style: none;
+  all: unset;
+  cursor: pointer;
+}
+
+li {
   list-style: none;
 }
 
 .products {
   width: 100vw;
-  height: 800px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -263,7 +272,7 @@ a {
   background-color: white;
 }
 
-.products .filtersOne {
+.products__filtersOne {
   width: 30%;
   height: 100%;
   display: -webkit-box;
@@ -280,7 +289,7 @@ a {
   text-align: center;
 }
 
-.products .filtersOne ul {
+.products__filtersOne ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -299,13 +308,17 @@ a {
   text-align: center;
 }
 
-.products .contentContainer {
-  width: 70%;
-  height: 100%;
+.products__filtersOne ul li {
+  margin: 20px 0;
 }
 
-.products .contentContainer .filtersTwo {
-  height: 50px;
+.products__contentContainer {
+  width: 100%;
+  height: auto;
+}
+
+.products__contentContainer__filtersTwo {
+  height: 85px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -317,7 +330,7 @@ a {
       justify-content: space-around;
 }
 
-.products .contentContainer .filtersTwo .filter {
+.products__contentContainer__filtersTwo__filter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -329,16 +342,32 @@ a {
           align-items: center;
 }
 
-.products .contentContainer .content .product {
-  margin: 10px;
-  text-align: center;
+.products__contentContainer__filtersTwo__filter li a {
+  margin: 0 20px;
+}
+
+.products__contentContainer__filtersTwo button {
+  margin-top: 20px;
+  background: darkslategray;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 0 10px;
+  font-weight: bold;
+  height: 40px;
+  cursor: pointer;
+}
+
+.products__contentContainer__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: auto;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-align: center;
@@ -347,22 +376,169 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 200px;
-  height: 350px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.products .contentContainer .content .product .imgContent {
+.products__contentContainer__content__product {
+  padding: 3%;
+  width: 33%;
+  height: auto;
+  margin: 10px;
+  text-align: center;
+  background-color: red;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+}
+
+.products__contentContainer__content__product__imgContent {
   width: 100%;
-  height: 90%;
+  background: black;
+  border-radius: 5px;
+}
+
+.products__contentContainer__content__product__imgContent img {
+  width: 100%;
+}
+
+.products__contentContainer__content__product__name {
+  font-weight: bold;
+}
+
+.products__contentContainer__content__product__price {
+  margin: -15px;
+  font-weight: 300;
+}
+
+.specificProduct {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.specificProduct .contentPop {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.specificProduct .contentPop .imgContentSpecific {
+  height: 500px;
+  width: 250px;
   background: black;
 }
 
-.products .contentContainer .content .product .name {
-  font-weight: 500;
+.specificProduct .contentPop .contentSpecific {
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-.products .contentContainer .content .product .price {
-  font-weight: 300;
+.specificProduct .contentPop .contentSpecific h4 {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.specificProduct .contentPop .contentSpecific h5 {
+  font-weight: 400;
+  margin-top: 25px;
+  color: gray;
+  font-size: 12px;
+}
+
+.specificProduct .contentPop .contentSpecific .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.specificProduct .contentPop .contentSpecific .color {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  margin: 5px;
+  -webkit-transition: .5s all ease;
+  transition: .5s all ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+}
+
+.specificProduct .contentPop .contentSpecific .color:hover {
+  border: solid black 5px;
+}
+
+.specificProduct .contentPop .contentSpecific .white {
+  border: solid black 1px;
+  background: white;
+}
+
+.specificProduct .contentPop .contentSpecific .yellow {
+  background: yellow;
+}
+
+.specificProduct .contentPop .contentSpecific .red {
+  background: red;
+}
+
+.specificProduct .contentPop .contentSpecific .size {
+  border: solid black 1px;
+  padding: 2px 5px;
+  background: white;
+  margin: 5px;
+  -webkit-transition: .5s all ease;
+  transition: .5s all ease;
+  cursor: pointer;
+}
+
+.specificProduct .contentPop .contentSpecific .size:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.specificProduct .contentPop .contentSpecific button {
+  margin-top: 60px;
+  background: darkslategray;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 0 10px;
+  font-weight: bold;
+  height: 40px;
+  cursor: pointer;
 }
 
 .newsletter {
