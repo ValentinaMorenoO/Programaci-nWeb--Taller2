@@ -38,7 +38,6 @@ var products = null;
 mongoClient.connect(function (err) {
 
     assert.equal(null, err);
-    console.log("equis de");
 
     const db = mongoClient.db(mongoName);
     products = db.collection("Ropa");
@@ -71,9 +70,12 @@ app.get("/", function(req, res){
     products.find({}).toArray(function(err, array){
         var context ={
             producto: array,
+            
         };
 
         console.log(array);
         res.render("index", context);
+       
     });
 });
+

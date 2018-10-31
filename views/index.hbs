@@ -77,10 +77,10 @@
                 </button>
 
             </div>
-            <div  class="products__contentContainer__content"></div>
+            <div  class="products__contentContainer__content">
             {{#each producto}}
             
-                <a href="/producto">
+                <a href="/producto ? producto={{nombre}}">
                     <div class="products__contentContainer__content__product">
                         <div class="products__contentContainer__content__product__imgContent">
                             <img src="{{imagen}}" alt="">

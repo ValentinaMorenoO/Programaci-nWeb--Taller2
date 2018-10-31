@@ -380,23 +380,23 @@ li {
       flex-wrap: wrap;
 }
 
+.products__contentContainer__content a {
+  width: 33%;
+}
+
 .products__contentContainer__content__product {
   padding: 3%;
-  width: 33%;
-  height: auto;
+  width: 90%;
   margin: 10px;
   text-align: center;
-  background-color: red;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: auto;
 }
 
 .products__contentContainer__content__product__imgContent {
   width: 100%;
-  background: black;
   border-radius: 5px;
 }
 
