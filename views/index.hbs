@@ -73,14 +73,15 @@
                     <li><a href="">Gifts</a></li>
                 </div>
                 <button>
-                    Buy Up
+                    Add to cart
+                    <img src="imagenes/cart.png">
                 </button>
 
             </div>
             <div  class="products__contentContainer__content">
             {{#each producto}}
             
-                <a href="/producto ? producto={{nombre}}">
+                <a href="/producto/desc?name={{nombre}}">
                     <div class="products__contentContainer__content__product">
                         <div class="products__contentContainer__content__product__imgContent">
                             <img src="{{imagen}}" alt="">

@@ -1,18 +1,18 @@
 //qe recoja lo que esta dentro e lo indicado: require
 
-const express= require('express');
-const engines= require('consolidate');
-const handlebars= require ('handlebars');
-const MongoClient= require('mongodb').MongoClient;
-const bodyParser= require('body-parser');
+const express = require('express');
+const engines = require('consolidate');
+const handlebars = require('handlebars');
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 
 
-const dbName= 'ropa';
+const dbName = 'ropa';
 
 
 var app = express();
-var db= null;
+var db = null;
 
 app.engine('hbs', engines.handlebars);
 app.set('views', './views');
@@ -22,8 +22,34 @@ app.use(express.static('public'));
 
 var port = 3000;
 
-app.get('/producto', (req, res) => {
-    res.render('producto');
+app.get('/producto/desc', (req, res) => {
+    var nombre = req.query.name;
+
+
+    products.find({}).toArray(function (err, array) {
+        var product = array.find(function (element) {
+            return element.nombre == nombre;
+        });
+        res.render('producto', product);
+    });
+
+
+});
+
+app.get('/producto/addtocart', (req, res) => {
+    var nombre = req.query.name;
+
+    var product = null;
+    products.find({}).toArray(function (err, array) {
+
+        product = array.find(function (element) {
+            return element.nombre == nombre;
+        });
+
+        db.collection('Cart').insert(product);
+    });
+
+
 });
 
 app.listen(port);
@@ -43,13 +69,13 @@ mongoClient.connect(function (err) {
     products = db.collection("Ropa");
 });
 
-mongoClient.connect(function(err){
+mongoClient.connect(function (err) {
 
-    if(err){
+    if (err) {
         console.error(err);
         return;
     }
-    db= mongoClient.db(dbName);
+    db = mongoClient.db(dbName);
 
 });
 
@@ -66,16 +92,15 @@ mongoClient.connect(function(err){
 
 */
 
-app.get("/", function(req, res){
-    products.find({}).toArray(function(err, array){
-        var context ={
+app.get("/", function (req, res) {
+    products.find({}).toArray(function (err, array) {
+        var context = {
             producto: array,
-            
+
         };
 
         console.log(array);
         res.render("index", context);
-       
+
     });
 });
-

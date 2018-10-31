@@ -9,7 +9,7 @@
     },
     {
         imagen: "/imagenes/ropa/blusasM/2.jpg",
-        nombre: "Join Life",
+        nombre: "Join Life2",
         precio: 35.000,
         categoria: "Mujer",
         tipo: "Ropa",

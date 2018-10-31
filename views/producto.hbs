@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i|Open+Sans:400,400i,600,600i,700,700i"
         rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
 
 </head>
@@ -17,47 +17,48 @@
 <body>
 
 <div class="specificProduct">
-        <div class="contentPop">
-            <div class="imgContentSpecific">
-
+        <div class="specificProduct__contentPop">
+            <div class="specificProduct__contentPop__imgContentSpecific">
+                <img src="{{imagen}}" alt="">
             </div>
-            <div class="contentSpecific">
-                <h4>
-                    Título
+            <div class="specificProduct__contentPop__contentSpecific">
+                <h4 class="specificProduct__contentPop__contentSpecific__name">
+                    {{nombre}} 
                 </h4>
 
-                <h5>
+                <h5 class="specificProduct__contentPop__contentSpecific__name">
                     Subtitle
                 </h5>
                 <p>
-                    Price
+                    {{precio}}
                 </p>
 
-                <h5>
+                <h5 class="specificProduct__contentPop__contentSpecific__name">
                     Subtitle
                 </h5>
 
-                <div class="container">
+                <div class="specificProduct__contentPop__contentSpecific__container">
 
                     <div class="color white"></div>
                     <div class="color yellow"></div>
                     <div class="color red"></div>
                 </div>
 
-                <h5>
+                <h5 class="specificProduct__contentPop__contentSpecific__name">
                     Subtitle
                 </h5>
-                <div class="container">
+                <div class="specificProduct__contentPop__contentSpecific__container">
 
                     <div class="size"> XS </div>
                     <div class="size"> S </div>
                     <div class="size"> M </div>
                     <div class="size"> XM </div>
                 </div>
-
+                <a href="/producto/addtocart?name={{nombre}}/">
                 <button>
-                    Buy Up
+                    Add to cart
                 </button>
+                </a>
             </div>
         </div>
     </div>
@@ -120,7 +121,7 @@
                     <li><a href="">Gifts</a></li>
                 </div>
                 <button>
-                    Buy Up
+                    Add to cart
                 </button>
 
             </div>
@@ -180,7 +181,7 @@
 
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 
