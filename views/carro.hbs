@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -8,14 +9,59 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i|Open+Sans:400,400i,600,600i,700,700i"
         rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
 
 </head>
 
 <body>
 
+<div class="specificProduct">
+        <div class="specificProduct__contentPop">
+            <div class="specificProduct__contentPop__imgContentSpecific">
+                <img src="{{imagen}}" alt="">
+            </div>
+            <div class="specificProduct__contentPop__contentSpecific">
+                <h4 class="specificProduct__contentPop__contentSpecific__name">
+                    {{nombre}} 
+                </h4>
 
+                <h5 class="specificProduct__contentPop__contentSpecific__name">
+                    Subtitle
+                </h5>
+                <p>
+                    {{precio}}
+                </p>
+
+                <h5 class="specificProduct__contentPop__contentSpecific__name">
+                    Subtitle
+                </h5>
+
+                <div class="specificProduct__contentPop__contentSpecific__container">
+
+                    <div class="color white"></div>
+                    <div class="color yellow"></div>
+                    <div class="color red"></div>
+                </div>
+
+                <h5 class="specificProduct__contentPop__contentSpecific__name">
+                    Subtitle
+                </h5>
+                <div class="specificProduct__contentPop__contentSpecific__container">
+
+                    <div class="size"> XS </div>
+                    <div class="size"> S </div>
+                    <div class="size"> M </div>
+                    <div class="size"> XM </div>
+                </div>
+                <a class="specificProduct__contentPop__contentSpecific__buttonAdd" data-name="{{nombre}}">
+                <button>
+                    Add to cart
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
 
 
     <article class="banner">
@@ -55,48 +101,10 @@
 
     </article>
 
+   
 
-    <section class="products">
-        <article class="products__filtersOne">
-            <ul>
-                <li><a href="/?categoria=Ambos">News</a></li>
-                <li><a href="/?categoria=Mujer">Woman</a></li>
-                <li><a href="/?categoria=Hombre">Man</a></li>
-            </ul>
-        </article>
-        <article class="products__contentContainer">
-            <div class="products__contentContainer__filtersTwo">
-                <div class="products__contentContainer__filtersTwo__filter">
-                    <li><a href="/?tipo=Ropa">Clothing</a></li>
-                    <li><a href="">Accesories</a></li>
-                    <li><a href="">Gifts</a></li>
-                </div>
-                <a href="/carro">
-                <button>
-                    Add to cart
-                    <img src="imagenes/cart.png">
-                </button>
-                </a>
 
-            </div>
-            <div  class="products__contentContainer__content">
-            {{#each producto}}
-            
-                <a href="/producto/desc?name={{nombre}}">
-                    <div class="products__contentContainer__content__product">
-                        <div class="products__contentContainer__content__product__imgContent">
-                            <img src="{{imagen}}" alt="">
-                        </div>
-                        <p class="products__contentContainer__content__product__name">{{nombre}}</p>
-                        <p class="products__contentContainer__content__product__price">{{precio}}</p>
-                    </div>
-                </a>
-            
-            {{/each}}
-            </div>
-            </div>
-        </article>
-    </section>
+    
 
 
 
@@ -135,10 +143,10 @@
 
     </footer>
 
-    <script src="js/main.js"></script>
-        <script src="/js/producto.js"></script>
-
+    <script src="../js/carro.js"></script>
 
 </body>
+
+
 
 </html>

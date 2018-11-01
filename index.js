@@ -68,7 +68,12 @@ app.get('/producto/addtocart', (req, res) => {
     });
 
 });
-
+app.get('/carro', (req, res) => {
+    var nombre = req.query.name;
+    products.find({}).toArray(function (err, array) {
+        res.render('carro', array);
+    });
+});
 
 
 /*MongoClient.connect('mongodb://localhost:27017', function (err, client) {
