@@ -57,7 +57,7 @@ app.get('/producto/desc', (req, res) => {
 
 app.get('/producto/addtocart', (req, res) => {
     var nombre = req.query.name;
-    console.log('nombre tomado: '+nombre);
+    console.log('nombre tomado: ' + nombre);
     products.find({}).toArray(function (err, docs) {
         var product = docs.find(function (element) {
             return element.nombre == nombre;
@@ -66,10 +66,9 @@ app.get('/producto/addtocart', (req, res) => {
         db.collection('Cart').insert(product);
         res.send('finaliza');
     });
-    
+
 });
 
-app.listen(port);
 
 
 /*MongoClient.connect('mongodb://localhost:27017', function (err, client) {
@@ -83,15 +82,55 @@ app.listen(port);
 
 */
 
-app.get("/", function (req, res) {
-    products.find({}).toArray(function (err, array) {
-        var context = {
-            producto: array,
+app.get('/', function (req, res) {
+    var filterCategoria = req.query.categoria;
 
-        };
+    if (filterCategoria !== null && filterCategoria !== '' && filterCategoria !== undefined) {
+        products.find({
+            categoria: filterCategoria,
+        }).toArray(function (err, docs) {
+            if (err) {
+                console.log(err);
+                return;
+            }
 
-        console.log(array);
-        res.render("index", context);
+            var context = {
+                producto: docs,
+            };
+            console.log(filterCategoria);
+            res.render("index", context);
 
-    });
+        });
+    } else {
+
+        products.find({}).toArray(function (err, array) {
+            var context = {
+                producto: array,
+
+            };
+            console.log(array);
+            console.log(filterCategoria);
+            res.render("index", context);
+
+        });
+    }
+
+
+
 });
+
+function findProduct(array, categoria, value) {
+    for (let index = 0; index < array.length; index++) {
+
+        if (array[index][categoria] === value) {
+            return array[index];
+        }
+
+    }
+
+    return null;
+}
+
+
+
+app.listen(port);
