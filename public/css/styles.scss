@@ -241,24 +241,34 @@ li {
         justify-content: center;
         align-items: center;
         background: rgba(0, 0, 0, .9);
-
+;
         &__contentPop {
             background: white;
             width: 90%;
             max-width: 900px;
-
+            max-height: 800px;
             border-radius: 25px;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-
             padding: 40px;
             box-sizing: border-box;
 
+
             &__imgContentSpecific {
-                height: 500px;
-                width: 250px;
-                background: black;
+              padding: 0%;
+              margin: 0%;
+              align-content: center;
+              align-items: center;
+;              justify-items: center;
+              width: 50%;
+              
+
+                & img{
+                    width: 100%;
+                    height: auto;
+                }
+              
             }
 
             &__contentSpecific {
@@ -346,7 +356,19 @@ li {
 
     }
 
+    .cartProducts{
 
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+
+        &__cartProducts__mens{
+
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+    }
 
     .newsletter {
 

@@ -1,3 +1,4 @@
+/*
 window.addEventListener('load',function(){
 
     var numerodecompras=0;
@@ -11,16 +12,24 @@ window.addEventListener('load',function(){
         compras.forEach(function(elem){ 
             numerodecompras += parseInt(elem.precio);
         });
-        document.querySelector('.navbar__container__items__list__bag').innerText = compras.length;
+        //document.querySelector('.specificProduct__contentPop__contentSpecific__buttonAdd').innerText = compras.length;
     }
-
-    
 
     shoppingBag__render();
 
-    document.querySelectorAll('.products__crafts__icon__add').forEach(function(elemento){
+    document.querySelectorAll('.specificProduct__contentPop__contentSpecific__buttonAdd').forEach(function(elemento){
         elemento.addEventListener('click', function(evento){
             evento.preventDefault();
+            console.log("entra hp");
+
+            var url = '/producto/getproduct?name='+this.getAttribute('data-name');
+            fetch(url,{
+                method: 'GET',
+            })
+            .then(res => res.json())
+            .catch(err => console.log(err))
+            .then(res => console.log(res));
+
             let parent = elemento.parentElement.parentElement.parentElement;
             let products = {
                 tittle : parent.querySelector('h3').innerText,
@@ -30,7 +39,11 @@ window.addEventListener('load',function(){
             compras.push(products);
             localStorage.setItem('compras', JSON.stringify(compras));
             shoppingBag__render();
+            
         });
     });
+
+console.log(compras);
     
 });
+*/

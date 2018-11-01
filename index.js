@@ -62,9 +62,9 @@ app.get('/producto/addtocart', (req, res) => {
         var product = docs.find(function (element) {
             return element.nombre == nombre;
         });
-        console.log(product);
-        db.collection('Cart').insert(product);
-        res.send('finaliza');
+        //console.log(product);
+        //db.collection('Cart').insert(product);
+        res.json(product);
     });
 
 });
@@ -75,6 +75,17 @@ app.get('/carro', (req, res) => {
     });
 });
 
+/*
+app.get('/producto/getproduct', (req, res) => {
+    var nombre = req.query.name;
+    products.find({}).toArray(function (err, docs) {
+        var producto= docs.find(function(element){
+            return element.nombre== nombre;
+        });
+        res.json(producto);
+    });
+});
+*/
 
 /*MongoClient.connect('mongodb://localhost:27017', function (err, client) {
     if (err) throw err;
