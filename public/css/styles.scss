@@ -12,7 +12,7 @@ body {
     align-items: center;
     width: 100%;
     height: 55vw;
-    background-image: url(imagenes/image-banner.jpg);
+    background-image: url(../imagenes/image-banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -104,7 +104,7 @@ li {
 }
 
 .products {
-    width: 100vw;
+   
     display: flex;
     flex-direction: row;
     background-color: white;
@@ -378,6 +378,8 @@ li {
         height: 100vh;
         width: 100vw;
         background-color: white;
+        margin-top: 0%;
+        margin: 0%;
 
         &__cartProducts__mens{
 
@@ -385,10 +387,17 @@ li {
             font-size: 20px;
             text-align: center;
         }
+ 
+        &__mens{
+            font-size: 16px;
+            padding: 30px;
+
+           
+        }
     }
 
     .buy{
-        width: 100vw;
+  
         background: white;
         margin: 0%;
         padding: 0;
@@ -412,10 +421,62 @@ li {
             height: 40px;
             cursor: pointer;
             justify-items: center;
+        
             
             
 
         }
+    }
+
+    .formulario{
+        height: 100vh;
+        background-color: white;
+        padding: 5%;
+        justify-content: center;
+        justify-items: center;
+        width: 100%;
+
+        input[type=text],
+            input[type=submit] {
+                width: 30%;
+                padding: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            
+
+            input[type=checkbox] {
+                margin-top: 16px;
+            }
+
+            label{
+                font-size: 16px;
+                display: inherit;
+            }
+
+            img{
+                margin-top: 20px;
+            }
+            button {
+            
+                margin-top: 20px;
+                background: black;
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 0 20px ;
+                font-weight: bold;
+                height: 40px;
+                cursor: pointer;
+                justify-items: center;
+                
+                
+    
+            }
     }
 
     .newsletter {
@@ -536,7 +597,6 @@ li {
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-top: 5%;
     height: auto;
     align-content: center;
     align-items: center;

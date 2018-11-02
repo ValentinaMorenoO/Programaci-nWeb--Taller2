@@ -133,6 +133,43 @@ app.get('/', function (req, res) {
 
 });
 
+app.get('/v', function (req, res) {
+    var filterValor = req.query.valor;
+
+    if (filterValor !== null && filterValor !== '' && filterValor !== undefined) {
+        products.find({
+            valor: filterValor,
+        }).toArray(function (err, docs) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            var context = {
+                producto: docs,
+            };
+            console.log(filterValor);
+            res.render("index", context);
+
+        });
+    } else {
+
+        products.find({}).toArray(function (err, array) {
+            var context = {
+                producto: array,
+
+            };
+            console.log(array);
+            console.log(filterValor);
+            res.render("index", context);
+
+        });
+    }
+
+
+
+});
+
 app.get('/', function (req, res) {
     var filterCategoria = req.query.categoria;
 
@@ -209,7 +246,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/t', function (req, res) {
-    console.log("AAAAA");
+   
     var filterTipo = req.query.tipo;
     
     if (filterTipo !== null && filterTipo !== '' && filterTipo !== undefined) {
@@ -245,6 +282,7 @@ app.get('/t', function (req, res) {
 
 
 });
+
 
 
 

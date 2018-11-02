@@ -2,11 +2,13 @@ window.addEventListener('load', function () {
 
     var tag= document.querySelector(".cartProducts");
     console.log(tag);
+    
 
     var compras = JSON.parse(localStorage.getItem('compras'));
     if(compras == null){
         console.log("Aquí no hay nada");
         crearMensajeError();
+        
     }
     else {
         this.console.log("Si hay objetos");
