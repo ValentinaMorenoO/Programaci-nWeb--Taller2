@@ -134,6 +134,43 @@ app.get('/', function (req, res) {
 
 
 });
+app.get('/', function (req, res) {
+    var filterTipo = req.query.tipo;
+
+    if (filterTipo !== null && filterCategoria !== '' && filterTipo !== undefined) {
+        products.find({
+            tipo: filterTipo,
+        }).toArray(function (err, docs) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            var context = {
+                producto: docs,
+            };
+            console.log(filterTipo);
+            res.render("index", context);
+
+        });
+    } else {
+
+        products.find({}).toArray(function (err, array) {
+            var context = {
+                producto: array,
+
+            };
+            console.log(array);
+            console.log(filterTipo);
+            res.render("index", context);
+
+        });
+    }
+
+
+
+});
+
 
 function findProduct(array, categoria, value) {
     for (let index = 0; index < array.length; index++) {
