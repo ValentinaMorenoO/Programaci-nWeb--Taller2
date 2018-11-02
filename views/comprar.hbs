@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -8,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i|Open+Sans:400,400i,600,600i,700,700i"
         rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
 
 </head>
 
 <body>
-
 
 
 
@@ -51,52 +51,11 @@
 
         </nav>
         <h1 class="banner__tittle">DARK</h1>
-        <h2 class="banner__subtittle">Store</h2>
+        <h2 class="banner__subtittle">Cart</h2>
 
     </article>
 
-
-    <section class="products">
-        <article class="products__filtersOne">
-            <ul>
-                <li><a href="/?categoria=Ambos">News</a></li>
-                <li><a href="/?categoria=Mujer">Woman</a></li>
-                <li><a href="/?categoria=Hombre">Man</a></li>
-            </ul>
-        </article>
-        <article class="products__contentContainer">
-            <div class="products__contentContainer__filtersTwo">
-                <div class="products__contentContainer__filtersTwo__filter">
-                    <li><a href="/t?tipo=Ropa">Clothing</a></li>
-                    <li><a href="/t?tipo=Accesorio">Accesories</a></li>
-                    <li><a href="">Gifts</a></li>
-                </div>
-                <a href="/carro">
-                <button>
-                    <img src="imagenes/cart.png">
-                </button>
-                </a>
-
-            </div>
-            <div  class="products__contentContainer__content">
-            {{#each producto}}
-            
-                <a href="/producto/desc?name={{nombre}}">
-                    <div class="products__contentContainer__content__product">
-                        <div class="products__contentContainer__content__product__imgContent">
-                            <img src="{{imagen}}" alt="">
-                        </div>
-                        <p class="products__contentContainer__content__product__name">{{nombre}}</p>
-                        <p class="products__contentContainer__content__product__price">{{precio}}</p>
-                    </div>
-                </a>
-            
-            {{/each}}
-            </div>
-            </div>
-        </article>
-    </section>
-
+    
 
 
     <form class="newsletter">
@@ -134,11 +93,10 @@
 
     </footer>
 
-    <script src="/js/main.js"></script>
-    <script src="/js/producto.js"></script>
-    <script src="/js/carro.js"></script>
-
+  
 
 </body>
+
+
 
 </html>

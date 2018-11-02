@@ -33,14 +33,7 @@ mongoClient.connect(function (err) {
     assert.equal(null, err);
     const db = mongoClient.db(mongoName);
     products = db.collection("Ropa");
-});
-
-mongoClient.connect(function (err) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    db = mongoClient.db(dbName);
+    console.error(products);
 });
 
 
@@ -74,6 +67,12 @@ app.get('/carro', (req, res) => {
         res.render('carro', array);
     });
 });
+app.get('/comprar', (req, res) => {
+    var nombre = req.query.name;
+    products.find({}).toArray(function (err, array) {
+        res.render('comprar', array);
+    });
+});
 
 /*
 app.get('/producto/getproduct', (req, res) => {
@@ -97,6 +96,42 @@ app.get('/producto/getproduct', (req, res) => {
 });
 
 */
+app.get('/', function (req, res) {
+    var filterCategoria = req.query.categoria;
+
+    if (filterCategoria !== null && filterCategoria !== '' && filterCategoria !== undefined) {
+        products.find({
+            categoria: filterCategoria,
+        }).toArray(function (err, docs) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            var context = {
+                producto: docs,
+            };
+            console.log(filterCategoria);
+            res.render("index", context);
+
+        });
+    } else {
+
+        products.find({}).toArray(function (err, array) {
+            var context = {
+                producto: array,
+
+            };
+            console.log(array);
+            console.log(filterCategoria);
+            res.render("index", context);
+
+        });
+    }
+
+
+
+});
 
 app.get('/', function (req, res) {
     var filterCategoria = req.query.categoria;
@@ -134,10 +169,50 @@ app.get('/', function (req, res) {
 
 
 });
-app.get('/', function (req, res) {
-    var filterTipo = req.query.tipo;
 
-    if (filterTipo !== null && filterCategoria !== '' && filterTipo !== undefined) {
+app.get('/', function (req, res) {
+    var filterCategoria2 = req.query.categoria2;
+
+    if (filterCategoria2 !== null && filterCategoria2 !== '' && filterCategoria2 !== undefined) {
+        products.find({
+            categoria2: filterCategoria2,
+        }).toArray(function (err, docs) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            var context = {
+                producto: docs,
+            };
+            console.log(filterCategoria2);
+            res.render("index", context);
+
+        });
+    } else {
+
+        products.find({}).toArray(function (err, array) {
+            var context = {
+                producto: array,
+
+            };
+            console.log(array);
+            console.log(filterCategoria2);
+            res.render("index", context);
+
+        });
+    }
+
+
+
+});
+
+
+app.get('/t', function (req, res) {
+    console.log("AAAAA");
+    var filterTipo = req.query.tipo;
+    
+    if (filterTipo !== null && filterTipo !== '' && filterTipo !== undefined) {
         products.find({
             tipo: filterTipo,
         }).toArray(function (err, docs) {
@@ -170,6 +245,7 @@ app.get('/', function (req, res) {
 
 
 });
+
 
 
 function findProduct(array, categoria, value) {
